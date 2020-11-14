@@ -3,7 +3,7 @@ height = 600
 nx = 6
 ny = 6
 len = 60
-type_forms = 1 #0 - линия, 1 - квадрат, 2 - круг
+type_forms = 0 #0 - линия, 1 - квадрат, 2 - круг
 
 fill_R_start, fill_G_start, fill_B_start = 108, 255, 50 #Начальный цвет заливки в RGB
 fill_R_end, fill_G_end, fill_B_end = 209, 31, 192 #Конечный цвет заливки в RGB
@@ -22,7 +22,9 @@ def draw():
             x = (k*width/nx)-((width/nx)/2)
             y = (i*height/ny)-((height/ny)/2)
             draw_form(x, y, i, k)
-            
+    global type_forms
+    type_forms = (type_forms + 1) % 3 
+                    
 def draw_form(x, y, i, k):
     fill(calc_color(i, k, fill_R_start, fill_R_end), 
          calc_color(i, k, fill_G_start, fill_G_end), 
