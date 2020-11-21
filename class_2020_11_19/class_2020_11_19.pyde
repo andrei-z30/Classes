@@ -15,9 +15,13 @@ def setup():
     
 def draw():
     background(155)
-    global x, y, napr, speed_x, speed_y
-    speed_y = speed_y + (accel_g/frameRate)
+    global x, y
+    x, y = calc_xy(x, y)
+    circle(x, y, size_circle)
     
+def calc_xy(x, y):
+    global napr, speed_x, speed_y
+    speed_y = speed_y + (accel_g/frameRate)
     
     if y + speed_y <= height-size_circle/2: y += speed_y
     else: 
@@ -44,5 +48,4 @@ def draw():
     else: 
         if x - speed_x > size_circle/2: x -= speed_x 
         else: x = size_circle/2
-    
-    circle(x, y, size_circle)
+    return(x, y)
