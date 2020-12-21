@@ -171,4 +171,3 @@ def GenerateNewBalls(count):
         balls[i].velocity.setMag(balls[i].velocity.mag() + score)
         if balls[i].number == num_result: check_result = True
     if check_result == False: balls[1].number = num_result
-    print(num_result)
