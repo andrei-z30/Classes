@@ -5,7 +5,7 @@ from ball import Player_Ball
 width = 1200
 height = 700
 PLAYER_RADIUS = 20
-STEP = 10
+COUNT_BALLS = 10
 score = 0
 game_over = False
 
@@ -78,7 +78,7 @@ def PlayerCollision(i):
         score += 1
         DestroyBalls()
         UpdateNumber()
-        GenerateNewBalls(10)
+        GenerateNewBalls(COUNT_BALLS)
     else:
         balls[0].radius += 10
         balls[i].position.add(PVector.sub(balls[i].position, balls[0].position).setMag(10))
@@ -108,7 +108,7 @@ def mousePressed():
 def mouseReleased():
     for i in range(len(balls)):
         balls[i].velocity.mult(10)
-    balls[0].velocity.add(pointer.div(10))
+    balls[0].velocity.add(PVector.div(pointer, 10))
     
 def UpdateNumber():
     global num_result, num_A, num_B, znak
@@ -158,7 +158,7 @@ def NewGame():
     score = 0
     balls = [Player_Ball(width/2, height/2, PLAYER_RADIUS)]
     UpdateNumber()
-    GenerateNewBalls(10)
+    GenerateNewBalls(COUNT_BALLS)
     loop()
         
 def DestroyBalls():
@@ -172,4 +172,3 @@ def GenerateNewBalls(count):
         if balls[i].number == num_result: check_result = True
     if check_result == False: balls[1].number = num_result
     print(num_result)
-    
