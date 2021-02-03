@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Andrey/YandexDisk/Polytech/Informatics/GIT/Classes/Cpp/class_2021_02_03/Ex_2/main.cpp
+iostream
+-
+
